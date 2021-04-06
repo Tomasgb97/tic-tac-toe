@@ -1,3 +1,12 @@
+@font-face {
+  font-family: neon;
+  src: url(fonts/NeonTubes2.otf);
+}
+@font-face {
+  font-family: azonix;
+  src: url(fonts/Azonix.otf);
+}
+
 body{
     background-color: lightgray;
     margin: 0px;
@@ -20,13 +29,36 @@ body{
   
 }
 .input{
-
+  font-family: system-ui;
+  font-weight: 900;
+  font-size: 30px;
   width: 50%;
   height: 40px;
   align-self: center;
   border-radius: 10px;
+  background-color: aliceblue;
   
 }
+input:hover{
+
+  transform: scale(1.01);
+  transition: 0.3s;
+  box-shadow: 0px 10px 0px 1px rgb(0 0 0 / 75%);;
+}
+.input:focus{
+
+  outline: none;
+}
+button:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+button:focus{
+  outline: none;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+
 label{
 
   align-self: center;
@@ -95,6 +127,8 @@ label{
     border-radius: 10px;
   }
   #playerxname{
+    font-family: azonix;
+    font-size: 30px;
     position: absolute;
     top: 30%;
     left:30px;
@@ -111,6 +145,8 @@ label{
   }
 
   #playeroname{
+    font-family: azonix;
+    font-size: 30px;
     position: absolute;
     top: 30%;
     right:30px;
@@ -127,7 +163,8 @@ label{
   
   }
   #playerxtext, #playerotext{
-
+    font-family: neon;
+    color: rgb(185, 105, 209);
     font-size: xx-large;
     font-weight: bolder;
   }
@@ -138,16 +175,76 @@ label{
     font-size: 60px;
     font-weight: 900;
   }
+  #restart{
+
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: rgb(226, 236, 236);
+    font-family: azorix;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: -2px 19px 13px -7px rgb(0 0 0);
+  }
 
   .fadein{
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 500ms, opacity 00ms;
+    transition: visibility 0s linear 1000ms, opacity 800ms;
   }
   .fadeout{
 
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s linear 100ms, opacity 600ms;
+    transition: visibility 500ms linear 100ms, opacity 600ms;
+  }
+
+  .winnerdiv{
+
+    width: 900px;
+    height: 900px;
+    background: rgba(255, 255, 255, 0.664);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    left: 24%;
+    top: 20px;
+    z-index: 1;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+  .winnerdiv h1{
+
+    font-family: 'neon';
+    font-size: 67px;
+    color: #f319b9;
+    text-shadow: 2px 2px #0d0bff;
+  }
+  .crownx{
+
+    background: url(images/royal-alphabet-crown-letter-english-x-512.webp);
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 10px;
+  }
+  .crowno{
+
+    background: url(images/royal-alphabet-crown-letter-english-o-512.webp);
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 10px;
+  }
+  .tieimage{
+    background: url(images/crown.png);
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 10px;
+
   }
   

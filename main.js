@@ -33,7 +33,7 @@ let gameboard = (function(){
             spaces[6] == 'X' && spaces[7] == 'X' && spaces[8] == 'X' ||
             spaces[2] == 'X' && spaces[4] == 'X' && spaces[6] == 'X'){
 
-             return console.log('WINNER IS X !!')
+             return begin.playerwins('X');
         } else if ( spaces[0] == 'O' && spaces[1] == 'O' && spaces[2] == 'O' ||
                     spaces[0] == 'O' && spaces[3] == 'O' && spaces[6] == 'O' ||
                     spaces[0] == 'O' && spaces[4] == 'O' && spaces[8] == 'O' ||
@@ -42,9 +42,9 @@ let gameboard = (function(){
                     spaces[3] == 'O' && spaces[4] == 'O' && spaces[5] == 'O' ||
                     spaces[6] == 'O' && spaces[7] == 'O' && spaces[8] == 'O' ||
                     spaces[2] == 'O' && spaces[4] == 'O' && spaces[6] == 'O'){
-                        return console.log('Winner is O !')
+                        return begin.playerwins('O');
                     }
-        else if (!spaces.includes("")) {return console.log('Its a TIE !')}
+        else if (!spaces.includes("")) {return begin.playerwins('tie)')}
     }
     let spaces = ["", "", "", "", "", "", "", "", ""];
 
@@ -59,16 +59,16 @@ let gameboard = (function(){
             if(playerxturn && (spaces[(attribute-1)] == "")){
             gameboard.setMark(attribute, 'X');
             playerxturn = false;
-            begin.change();
             checkwinner();
+            begin.change();
             return gameboard.renderMarks();}
 
 
             else if (!playerxturn && (spaces[(attribute-1)] == ""))
             {gameboard.setMark(attribute, 'O');
             playerxturn = true;
-            begin.change();
             checkwinner();
+            begin.change();
              return gameboard.renderMarks();}
 
 
@@ -80,12 +80,19 @@ let gameboard = (function(){
 
     }
 
+    let reset = () =>{
+
+        spaces = ["", "", "", "", "", "", "", "", ""];
+        return renderMarks();
+
+    }
+
     let setMark = (location, value) => {
 
         spaces.splice((location-1), 1, value);
         
     }
-        return {renderMarks, setMark};
+        return {renderMarks, setMark, reset};
 })();
 
  gameboard.renderMarks();
@@ -117,6 +124,7 @@ const player0display = document.getElementById('playeroname');
 const playerxtext =document.getElementById('playerxtext');
 const playerotext =document.getElementById('playerotext');
 const namesdiv = document.getElementById('namesdiv');
+const body = document.getElementById('body');
 
 let change = () => {
     
@@ -127,7 +135,7 @@ let change = () => {
         playerxdisplay.classList.add('fadein');
         playerxdisplay.classList.remove('fadeout')}
         else {
-            player0display.classList.remove('fadeout');
+        player0display.classList.remove('fadeout');
         player0display.classList.add('fadein');
         playerxdisplay.classList.remove('fadein');
         playerxdisplay.classList.add('fadeout')
@@ -146,7 +154,53 @@ let start = startbutton.addEventListener('click', function(){
     
     playerotext.textContent = player2name.value;
 
-
+    
      return namesdiv.classList.toggle('fadein');
 })
-return {start, change}})();
+
+let playerwins = (player) => {
+    if(player == 'X'){
+        imagen = 'crownx';
+        winneris = `WINNER IS ${player1name.value}`
+        playerxturn = true;
+    } else if(player == 'O'){
+        imagen = 'crowno';
+       winneris = `WINNER IS ${player2name.value}`
+       playerxturn = true;
+    }else{
+        winneris = "IT'S A TIE !"
+        imagen = 'tieimage';
+        playerxturn =true;
+    }
+    
+    const winnerDiv = document.createElement('div');
+    winnerDiv.classList.add('winnerdiv');
+    const header = document.createElement('h1');
+    header.textContent = winneris;
+    const crown = document.createElement('div');
+    crown.classList.add(imagen);
+    const restartbttn = document.createElement('button');
+    restartbttn.textContent = `RE-START`
+    restartbttn.id = 'restart'
+    winnerDiv.appendChild(header);
+    winnerDiv.appendChild(crown);
+    winnerDiv.appendChild(restartbttn);
+
+    restartbttn.addEventListener('click', function(){
+
+        winnerDiv.classList.toggle('fadein');
+        playerxdisplay.style.visibility= 'hidden';
+        gameboard.reset();
+        player0display.classList.remove('fadeout')
+        player0display.classList.add('fadein');
+        namesdiv.classList.toggle('fadein');
+        player1name.value = "";
+        player2name.value = "";
+
+    })
+
+    body.appendChild(winnerDiv);
+    
+
+}
+return {start, change, playerwins}})();
