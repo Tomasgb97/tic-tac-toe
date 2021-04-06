@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div id="namesdiv">
+            <input id="player1name" class="input" type="text" placeholder="Player N#1 name      || X's">
+            <input id="player2name" class="input" type="text" placeholder="Player N#2 name      || O's">
+            <button id="startbutton">BEGIN !</button>
+    </div>
+
+    <div style="visibility: hidden;" id="playerxname">
+        <h2>TURN OF</h2>
+        <p id="playerxtext">PLAYER 1 NAME</p>
+        <h1>X</h1>
+    </div>
+
+    <div class="fadein" id="playeroname">
+        <h2>TURN OF</h2>
+        <p id="playerotext">PLAYER 2 NAME</p>
+        <h1>O</h1>
+    </div>
+    <div id="board" class="grid-container">
+        <div class= 'placing' id="one">
+            <div class="data" data-spot="1"></div>
+        </div>
+        <div class= 'placing' id="two">
+            <div class="data" data-spot="2"></div>
+        </div>
+        <div class= 'placing' id="three">
+            <div class="data" data-spot="3"></div>
+        </div>
+        <div class= 'placing' id="four">
+            <div class="data" data-spot="4" ></div>
+        </div>
+        <div class= 'placing' id="five">
+            <div class="data" data-spot="5"></div>
+        </div>
+        <div class= 'placing' id="six">
+            <div class="data" data-spot="6" ></div>
+        </div>
+        <div class= 'placing' id="seven">
+            <div class="data" data-spot="7" ></div>
+        </div>
+        <div class= 'placing' id="eight">
+            <div class="data" data-spot="8" ></div>
+        </div>
+        <div class= 'placing' id="nine">
+            <div class="data" data-spot="9" ></div>
+        </div>
+    </div>
+
+<script src="main.js"></script>
+</body>
+</html>
