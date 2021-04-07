@@ -36,7 +36,7 @@ body{
 .input{
   font-family: system-ui;
   font-weight: 900;
-  font-size: 150%;
+  font-size: 1.8vw;
   width: 50%;
   height: 7%;
   align-self: center;
