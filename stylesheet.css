@@ -15,6 +15,9 @@ body{
     overflow: hidden;
     background: url(images/13167.jpg);
     background-size:cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .data{
 
@@ -31,9 +34,9 @@ body{
 .input{
   font-family: system-ui;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 150%;
   width: 50%;
-  height: 40px;
+  height: 7%;
   align-self: center;
   border-radius: 10px;
   background-color: aliceblue;
@@ -107,12 +110,12 @@ label{
   }
   #namesdiv{
 
-    width: 900px;
-    height: 900px;
+    width: 50%;
+    height: 97%;
     background: rgba(255, 255, 255, 0.356);
     position: absolute;
-    left: 24%;
-    top: 20px;
+    left: 22.5%;
+    top: 3%;
     z-index: 1;
     border-radius: 30px;
     display: flex;
@@ -128,14 +131,14 @@ label{
   }
   #playerxname{
     font-family: azonix;
-    font-size: 30px;
+    font-size: 100%;
     position: absolute;
     top: 30%;
-    left:30px;
-    height: 350px;
-    width: 350px;
+    left:1vw;
+    height: 30%;
+    width: 20vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
@@ -146,14 +149,14 @@ label{
 
   #playeroname{
     font-family: azonix;
-    font-size: 30px;
+    font-size: 100%;
     position: absolute;
     top: 30%;
-    right:30px;
-    height: 350px;
-    width: 350px;
+    right:1vw;
+    height: 30%;
+    width: 20vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
@@ -172,13 +175,18 @@ label{
 
     font-family: monospace;
     text-shadow: -3px 0px 1px rgb(241 150 225);
-    font-size: 60px;
+    font-size: 70px;
     font-weight: 900;
+    margin-top: 0px;
+  }
+  #playerxname h2, #playeroname h2{
+
+    height: 0px;
   }
   #restart{
 
-    width: 200px;
-    height: 80px;
+    width: 20%;
+    height: 8%;
     border-radius: 10px;
     background-color: rgb(226, 236, 236);
     font-family: azorix;
@@ -201,13 +209,13 @@ label{
 
   .winnerdiv{
 
-    width: 900px;
-    height: 900px;
+    width: 50%;
+    height: 97%;
     background: rgba(255, 255, 255, 0.664);
     backdrop-filter: blur(3px);
     position: absolute;
-    left: 24%;
-    top: 20px;
+    left: 22.5%;
+    top: 3%;
     z-index: 1;
     border-radius: 30px;
     display: flex;
